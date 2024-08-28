@@ -1,0 +1,145 @@
+/* RegistrationPickingLanguages.module.css */
+
+.cardFormDevelopers {
+    background-image: linear-gradient(to bottom, rgba(20, 20, 20, 0.9), rgba(50, 10, 50, 0.8));
+
+    text-align: justify;
+    display: flex;
+    align-items: center;
+    overflow: auto;
+}
+
+/* Header and Progress Bar Styles */
+.card_header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cardHeader1 {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.progress {
+    flex: 1;
+    border: 2px solid white;
+    
+}
+
+.progressBar {
+    background-image:linear-gradient(to bottom, rgba(36, 178, 60, 0.785), rgba(41, 161, 28, 0.73));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid white;
+}
+/* ///////////////////////////////////////// */
+/* Body Styles */
+.cardBody {
+    width: 100%;
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.cardBody1 {
+    flex: 1;
+    display: flex;
+    margin-bottom: 2%;
+}
+
+.cardBody1a {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.cardBody1b {
+    flex: 1;
+    display: flex;
+}
+
+#added_skills {
+    flex: 1;
+    display: flex;
+
+    flex-wrap: wrap;
+    margin-left: 3%;
+}
+
+.cardBody2 {
+    flex: 1;
+    display: flex;
+
+}
+
+#cardBody2a {
+    flex: 1;
+    display: flex;
+    padding: 1%;
+    box-sizing: border-box;
+}
+
+.cardBody2a1{
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+
+    overflow: auto;
+}
+
+.cardBody2b {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-left: 2%;
+    overflow: auto;
+}
+
+/* Footer Styles */
+.cardFooter {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/* Icon Styles */
+.icons {
+    border-radius: 0.5em; /* relative to the root font size */
+    height: 4rem; /* adjust based on root font size */
+    width: 4rem;
+    margin: 2%; /* using percentage for margin is already good practice */
+    box-shadow: 0.3rem 0.3rem 0.3rem grey; /* making shadow size responsive */
+}
+
+
+.iconsd {
+    border-radius: 10px;
+    height: 110px;
+    width: 110px;
+    padding: 4%;
+    margin: 3%;
+    box-shadow: 5px 5px 5px 5px grey;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.icons2 {
+    border-radius: 10px;
+    height: 50px;
+    width: 50px;
+    padding: 1%;
+    margin: 1%;
+    box-shadow: 5px 5px 5px 5px grey;
+}
+
+.shadowx {
+    box-shadow: 5px 5px 5px 5px rgba(161, 28, 127, 0.73);
+}

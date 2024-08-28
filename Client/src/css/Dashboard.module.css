@@ -1,0 +1,103 @@
+.dashboard {
+    background-image: linear-gradient(to bottom, rgba(20, 20, 20, 0.9), rgba(50, 10, 50, 0.8));
+
+    text-align: justify;
+    display: flex;
+    align-items: center;
+    overflow: auto;
+}
+
+.cardDevs {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 1%;
+    background-color:linear-gradient(to bottom, rgba(20, 20, 20, 0.9), rgba(50, 10, 50, 0.8));
+}
+
+.cardBody1, .cardFooter{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.cardHeader{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.cardHeader1,.cardHeader2 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardBody{
+    width: 100%;
+    display: flex;
+    height: 22rem;
+}
+
+.cardBody1{
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+
+}
+
+.cardBody1a{
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 3%;
+}
+
+.cardBody1b{
+    width: 100%;
+    flex: 5;
+    display: flex;
+    flex-direction: column;
+    padding: 3%;
+
+    overflow: auto;
+}
+
+
+.cardBody2{
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.cardPositions{
+    margin-top: 1%;
+}
+
+.progress {
+    flex: 1;
+    border: 2px solid white;
+    
+}
+
+.progressBar {
+    background-image:linear-gradient(to bottom, rgba(36, 178, 60, 0.785), rgba(41, 161, 28, 0.73));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid white;
+}
+
+.cardFooter{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}

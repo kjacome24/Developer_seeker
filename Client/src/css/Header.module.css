@@ -1,0 +1,29 @@
+.header{
+    padding-left: 2%;
+    padding-right: 2%;
+    background-image:linear-gradient(to bottom, rgba(53, 54, 59, 0.785), rgba(161, 28, 127, 0.73));
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+
+.header1{
+    flex: 1;
+    display: flex;
+}
+
+.header2{
+    flex: 1;
+    display: flex;
+    justify-content: space-evenly;
+    height: 80%;
+    align-items: center;
+}

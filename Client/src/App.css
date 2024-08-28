@@ -1,0 +1,12 @@
+#root {
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+  display: flex;
+  flex-direction: column;
+}
+

@@ -1,0 +1,141 @@
+.dashboard {
+    background-image: linear-gradient(to bottom, rgba(20, 20, 20, 0.9), rgba(50, 10, 50, 0.8));
+
+    text-align: justify;
+    display: flex;
+    align-items: center;
+
+}
+
+.cardDevs {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 1%;
+    background-color:linear-gradient(to bottom, rgba(20, 20, 20, 0.9), rgba(50, 10, 50, 0.8));
+}
+
+.cardBody1 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.cardFooter{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.cardHeader{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.cardHeader1,.cardHeader2 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardBody{
+    width: 100%;
+    display: flex;
+    height: 22rem;
+}
+
+.cardBody1{
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+
+}
+
+
+
+.cardBody1b{
+    width: 100%;
+    flex: 5;
+    display: flex;
+    flex-direction: column;
+    padding: 3%;
+
+    overflow: auto;
+}
+
+
+.cardBody2{
+    width: 100%;
+    flex: 1;
+    display: flex;
+
+}
+
+.cardPositions{
+    width: 100%;
+    margin-top: 2%;
+    display: flex;
+    flex-direction: column;
+}
+
+.cardleft{
+    width: 100%;
+    flex: 1;
+}
+.cardright{
+    width: 100%;
+    flex: 1;
+}
+
+
+.cardDevs{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.icon {
+    border-radius: 0.5em; /* relative to the root font size */
+    height: 4rem; /* adjust based on root font size */
+    width: 4rem;
+    margin: 2%; /* using percentage for margin is already good practice */
+    box-shadow: 0.3rem 0.3rem 0.3rem grey; /* making shadow size responsive */
+}
+
+
+.buttonsDevs{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.cardBody1x{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 3%;
+    overflow: auto;
+}
+
+.progress {
+    flex: 1;
+    border: 2px solid white;
+    
+}
+
+.progressBar {
+    background-image:linear-gradient(to bottom, rgba(36, 178, 60, 0.785), rgba(41, 161, 28, 0.73));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid white;
+}

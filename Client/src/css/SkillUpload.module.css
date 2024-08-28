@@ -1,0 +1,7 @@
+.uploadingSkills{
+    background-image: linear-gradient(to bottom, rgba(20, 20, 20, 0.9), rgba(50, 10, 50, 0.8));
+    text-align: justify;
+    display: flex;
+    align-items: center;
+    overflow: auto;
+}

@@ -1,0 +1,63 @@
+.developerCard {
+    background-image: linear-gradient(to bottom, rgba(20, 20, 20, 0.9), rgba(50, 10, 50, 0.8));
+
+    text-align: justify;
+    display: flex;
+    align-items: center;
+    overflow: auto;
+}
+
+.cardHeader{
+    width: 100%;
+} 
+
+.cardBody{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cardBodyA{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.cardBodyB{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.cardBodyB1{
+    width: 100%;
+    display: flex;
+    justify-content:center;
+    flex-wrap: wrap;
+    
+}
+
+.cardBodyB2{
+    width: 100%;
+    display: flex;
+    justify-content:center;
+    flex-wrap: wrap;
+    
+}
+
+.cardFooter{
+    width: 100%;
+
+}
+
+.icon {
+    border-radius: 0.5em; /* relative to the root font size */
+    height: 4rem; /* adjust based on root font size */
+    width: 4rem;
+    margin: 2%; /* using percentage for margin is already good practice */
+    box-shadow: 0.3rem 0.3rem 0.3rem grey; /* making shadow size responsive */
+}

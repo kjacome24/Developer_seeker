@@ -1,0 +1,42 @@
+.cardFormDevelopers {
+    background-image: linear-gradient(to bottom, rgba(20, 20, 20, 0.9), rgba(50, 10, 50, 0.8));
+
+    text-align: justify;
+    display: flex;
+    align-items: center;
+    overflow: auto;
+}
+
+.cardFormDevelopers form{
+    margin: 0 auto;
+
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.cardFormDevelopers button{
+    border: 2px solid  rgba(161, 28, 127, 0.73);
+    margin: 0 auto;
+    display: flex;
+    margin-bottom: 1%;
+    margin-top: 1%;
+}
+
+.cardFormDevelopers form button {
+    border: 2px solid  rgba(161, 28, 127, 0.73);
+    margin: 0 auto;
+    display: flex;
+    margin-top: 2%;
+}
+
+.cardFormDevelopers form label {
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.cardFormDevelopers form input {
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+

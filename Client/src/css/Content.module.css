@@ -1,0 +1,8 @@
+main {
+    display: flex;
+    height: 100%;
+    overflow: auto;
+    box-sizing: border-box;
+    padding-top: 2%;
+    justify-content: center;
+}
