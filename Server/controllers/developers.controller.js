@@ -67,7 +67,7 @@ const developersController = {
         }
     },
     updateOne :async (req,res) => {
-        const {languages, bio, github, stageOfCompletion} = req.body;
+        const {languages, bio, github, stageOfCompletion, image} = req.body;
         const email = req.params.email;
         const dataToBeUpdated = {};
         if(languages){
@@ -81,6 +81,9 @@ const developersController = {
         }
         if(stageOfCompletion){
             dataToBeUpdated.stageOfCompletion = stageOfCompletion;
+        }
+        if(image){
+            dataToBeUpdated.image = image;
         }
         try{
             const developerUpdated = await Developer.findOneAndUpdate({email}, dataToBeUpdated, {new: true, runValidators: true});

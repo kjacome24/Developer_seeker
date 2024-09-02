@@ -54,10 +54,11 @@ const ApiOneDeveloper = ({setLogin,dataCountries}) => {
                 </div>
                 <div className={`${styles.cardBody} card-body`}>
                     <div className={styles.cardBodyA}>
+                        <img src={`data:image/jpeg;base64,${dataApiDeveloper.dataApiOne.image}`} alt="Profile" className={styles.profileImage}/>
+                        <br/>
                         <p className="card-title"><span style={{ color:"rgb(249, 157, 194)" }}>Full Name:</span> {dataApiDeveloper.dataApiOne.firstName} {dataApiDeveloper.dataApiOne.lastName}</p>
                         <p className="card-text"><span style={{ color:"rgb(249, 157, 194)" }}>Email:</span> {dataApiDeveloper.dataApiOne.email}</p>
                         <p className="card-text"><span style={{ color:"rgb(249, 157, 194)" }}>Bio:</span> {dataApiDeveloper.dataApiOne.bio}</p>
-                        <p className="card-text"><span style={{ color:"rgb(249, 157, 194)" }}>Github:</span> {dataApiDeveloper.dataApiOne.github}</p>
                         <p className="card-text"><span style={{ color:"rgb(249, 157, 194)" }}>Country:</span> {dataApiDeveloper.dataApiOne.country}</p>
                         <p className="card-text"><span style={{ color:"rgb(249, 157, 194)" }}>ID:</span> {dataApiDeveloper.dataApiOne._id}</p>
                         {dataCountries.filter((country)=>country.name === dataApiDeveloper.dataApiOne.country).map((country, index) => (
@@ -65,6 +66,9 @@ const ApiOneDeveloper = ({setLogin,dataCountries}) => {
                         ))}
                     </div>
                     <div className={styles.cardBodyB}>
+                        <h4 style={{ color:"rgb(249, 157, 194)" }}>Github:</h4>
+                        <a href={dataApiDeveloper.dataApiOne.github} target="_blank" rel="noreferrer">{dataApiDeveloper.dataApiOne.github}</a>
+                        <br></br>
                         <h4 style={{ color:"rgb(249, 157, 194)" }}>Languages: </h4>
                         <div className={styles.cardBodyB1}>
                             {dataApiDeveloper.dataApiOne.languages.filter(skill => skill.languageOrFramework==="language").map((language, index) => 

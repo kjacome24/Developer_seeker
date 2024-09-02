@@ -61,3 +61,10 @@
     margin: 2%; /* using percentage for margin is already good practice */
     box-shadow: 0.3rem 0.3rem 0.3rem grey; /* making shadow size responsive */
 }
+
+.profileImage {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    object-fit: cover;
+}

@@ -32,7 +32,7 @@ const employersController = {
     },
     createOne :async (req,res) => {
         console.log(req.body);
-        const {orgName, firstName, lastName, email, password, confirmPassword, country, orgAddress} = req.body;
+        const {orgName, firstName, lastName, email, password, confirmPassword, country, orgAddress, image} = req.body;
         const newEmployer = {
             orgName,
             firstName,
@@ -41,7 +41,8 @@ const employersController = {
             password,
             confirmPassword,
             country,
-            orgAddress
+            orgAddress,
+            image
         }
         try{
             const employersaved = await Employer.create(newEmployer);

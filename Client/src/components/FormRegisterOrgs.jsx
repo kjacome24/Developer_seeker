@@ -12,6 +12,7 @@ const FormRegisterOrgs = ({dataCountries, setLogin}) => {
         confirmPassword: "",
         country: "",
         orgAddress : "",
+        image: "",
         errorForm : {}
     });
 
@@ -21,7 +22,17 @@ const FormRegisterOrgs = ({dataCountries, setLogin}) => {
             ...state,
             [e.target.name]: e.target.value
         });
-    }
+    };
+
+    const handleFileChange = (e) => {
+        const selectedFile = e.target.files[0];
+        // Convert the file to a Base64 encoded string
+        const reader = new FileReader();
+        reader.onloadend = () => {
+            setState(previous => ({ ...previous, image: reader.result.split(',')[1] })); // Remove the "data:image/jpeg;base64," part
+        };
+        reader.readAsDataURL(selectedFile);
+    };
 
     const navigate = useNavigate();
 
@@ -41,6 +52,7 @@ const FormRegisterOrgs = ({dataCountries, setLogin}) => {
                         confirmPassword: "",
                         country: "",
                         orgAddress : "",
+                        image: "",
                         errorForm : {}
                     }
                 )
@@ -159,6 +171,16 @@ const FormRegisterOrgs = ({dataCountries, setLogin}) => {
                     value={state.orgAddress} onChange={updateState}
                 />
                 {state.errorForm.orgAddress && <p style={{color:"rgb(249, 157, 194)"}}>{state.errorForm.orgAddress.message}</p>}
+            </div>
+            <div className="col-md-12">
+                <label htmlFor="image" className="form-label">Company Logo:</label>
+                <input 
+                    type="file" 
+                    className="form-control text-white bg-dark" 
+                    name="image" 
+                    id="image" 
+                    onChange={handleFileChange}
+                />
             </div>
             <div className="col-md-12">
                 <button type="submit" className="btn btn-dark">Register</button>
