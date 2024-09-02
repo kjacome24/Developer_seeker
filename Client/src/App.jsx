@@ -7,17 +7,24 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
 
+
+
+
 function App() {
   const [login, setLogin] = useState(false);
-
   const navigate = useNavigate();
-  
+
+
+
+
   useEffect(() => {
     // Check if token exists in localStorage
     const token = localStorage.getItem('token');
     // if (token) {
     //   setLogin(true);
     // }
+
+
   }, []); // Empty dependency array ensures this effect runs once on component mount
 
   const logOut = () => {

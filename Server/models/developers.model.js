@@ -2,6 +2,8 @@ import mongoose from 'mongoose';
 import {skillSchema} from './skills.model.js';
 import bcrypt from 'bcrypt';
 
+////this is a clue
+
 const developerSchema = new mongoose.Schema(
     {
         firstName :{
@@ -43,9 +45,12 @@ const developerSchema = new mongoose.Schema(
         stageOfCompletion:{
             type : Number
         },
-        languages:[skillSchema]
-        ,bio:{type : String}
-        ,github:{type : String}
+        languages:[skillSchema],
+        image: {
+            type: String, // This will store the Base64 encoded image string
+        },
+        bio:{type : String},
+        github:{type : String}
     },{timestamps: true}
 );
 

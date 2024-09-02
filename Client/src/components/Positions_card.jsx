@@ -52,59 +52,45 @@ const Positions_card = ({ dataApiPositions,dataCountries, dataApiDevelopers }) =
     return (
         <div className={`${styles.dashboard} card text-white`} style={{ width: "70rem" }}>
             <div className={`${styles.cardHeader} card-header`}>
-                <h1>{position.namePosition} at {position.company?.orgName}</h1>
+                <h1>{position.namePosition} at{" "}
+                    <Link to={`/companies/${position.company?.email}`} style={{ color: "rgb(249, 157, 194)" }}>
+                        {position.company?.orgName}
+                    </Link>
+                    
+                    </h1>
             </div>
             <div className={`${styles.cardBody} card-body text-white`}>
                 <div className={`${styles.cardBody1} card text-white`} style={{ backgroundColor: "transparent" }}>
-                    <div>
-                        <div className={`${styles.cardBody1a} card-header`}>
-
-                        </div>
-                        <div className={`${styles.cardBody1b} card-body`}>
-                        <h4>Position Information:</h4>
-                            <p>
-                                <strong style={{ color: "rgb(249, 157, 194)" }}>Position Name:</strong> {position.namePosition} <br />
-                            </p>
-                            <p>
-                                <strong style={{ color: "rgb(249, 157, 194)" }}>Job Description:</strong> {position.jobDescription} <br />
-                            </p>
-                            <p>
-                                <strong style={{ color: "rgb(249, 157, 194)" }}>Languages:</strong>
-                                <br />
-                                {position.languages?.map((lang, index) => (
-                                    <img className={styles.icon} key={index} src={`data:image/jpeg;base64,${lang.image}`} 
+                    <div className={`${styles.cardBody1b} card-body`}>
+                    <h4>Position Information:</h4>
+                        <p>
+                            <strong style={{ color: "rgb(249, 157, 194)" }}>Position Name:</strong> {position.namePosition} <br />
+                        </p>
+                        <p>
+                            <strong style={{ color: "rgb(249, 157, 194)" }}>Job Description:</strong> {position.jobDescription} <br />
+                        </p>
+                        <p>
+                            <strong style={{ color: "rgb(249, 157, 194)" }}>Languages:</strong>
+                            <br />
+                            {position.languages?.map((lang, index) => (
+                                <img className={styles.icon} key={index} src={`data:image/jpeg;base64,${lang.image}`} 
                                     alt={`${lang.name} Icon`} style={{width: "50px"}}/>))}
-                            </p>
-                            <p>
-                                <strong style={{ color: "rgb(249, 157, 194)" }}>Posted on:</strong> {new Date(position.createdAt).toLocaleString()} <br />
-                            </p>
-                            <p>
-                                <strong style={{ color: "rgb(249, 157, 194)" }}>Updated on:</strong> {new Date(position.updatedAt).toLocaleString()} <br />
-                            </p>
+                        </p>
+                        <p>
+                            <strong style={{ color: "rgb(249, 157, 194)" }}>Posted on:</strong> {new Date(position.createdAt).toLocaleString()} <br />
+                        </p>
+                        <p>
+                            <strong style={{ color: "rgb(249, 157, 194)" }}>Updated on:</strong> {new Date(position.updatedAt).toLocaleString()} <br />
+                        </p>
 
-                        </div>
                     </div>
-                    <div className={`${styles.cardBody1a} card-header`}>
-                        <h4>Company Information:</h4>
-                    </div>
-                    <div className={`${styles.x} card-body`}>
-                        
-                        <p>
-                            <strong style={{ color: "rgb(249, 157, 194)" }}>Company Name:</strong> {position.company?.orgName} 
-                        </p>
-                        <p>
-                            <strong style={{ color: "rgb(249, 157, 194)" }}>Contact Person:</strong> {position.company?.firstName} {position.company?.lastName} 
-                        </p>
-                        <p>
-                            <strong style={{ color: "rgb(249, 157, 194)" }}>Contact Email:</strong> {position.company?.email} 
-                        </p>
-                    </div>
+
                 </div>
                 <div className={`${styles.cardBody2} card text-white`} style={{ backgroundColor: "transparent" }}>
                     <div className={`${styles.cardBody2a} card-header`}>
                         <h4>List Developers with Match:</h4>
                     </div>
-                    <div className={`${styles.cardBody1b} card-body`}>
+                    <div className={`${styles.cardBody2b} card-body`}>
                         {developersWithMatch.map((developer, index) => (
                                 <div key={index} className={`${styles.cardDevs} card text-white bg-dark`} style={{border: "1px solid rgb(237, 208, 134)"}}>
                                 <div className={`${styles.cardHeader} card-header`}>
@@ -118,7 +104,7 @@ const Positions_card = ({ dataApiPositions,dataCountries, dataApiDevelopers }) =
                                     </div>
 
                                 </div>
-                                <div className={`${styles.cardBody1} card-body`}>
+                                <div className={`${styles.cardBody2} card-body`}>
                                     <div className={`${styles.progress} progress bg-dark`} role="progressbar" aria-label="Basic example" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
                                         <div className={`${styles.progressBar} progressbar`} style={{ width: `${developer.match}%` }}>
                                             {developer.match}%
@@ -143,6 +129,19 @@ const Positions_card = ({ dataApiPositions,dataCountries, dataApiDevelopers }) =
                         </Link>
                     </div>
                 </div>
+            </div>
+            <div className={`${styles.cardFootert} card-footer`}>
+        
+                <h4>Company Information:</h4>
+                <p>
+                    <strong style={{ color: "rgb(249, 157, 194)" }}>Company Name:</strong> {position.company?.orgName} 
+                </p>
+                <p>
+                    <strong style={{ color: "rgb(249, 157, 194)" }}>Contact Person:</strong> {position.company?.firstName} {position.company?.lastName} 
+                </p>
+                <p>
+                    <strong style={{ color: "rgb(249, 157, 194)" }}>Contact Email:</strong> {position.company?.email} 
+                </p>
             </div>
         </div>
     );

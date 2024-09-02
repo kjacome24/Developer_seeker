@@ -1,6 +1,8 @@
 import mongoose from 'mongoose';
 import bcrypt from 'bcrypt';
 
+////this is a clue
+
 const employerSchema = new mongoose.Schema(
     {
         orgName :{
@@ -50,7 +52,10 @@ const employerSchema = new mongoose.Schema(
         country:{
             type : String,
             required : [true, 'Country is required'],
-        }
+        },
+        image: {
+            type: String, // This will store the Base64 encoded image string
+        },
     },{timestamps: true}
 );
 
