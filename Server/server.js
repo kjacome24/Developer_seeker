@@ -12,6 +12,7 @@ import developersRoutes from './routes/developers.routes.js';
 import skillsRoutes from './routes/skills.routes.js';
 import employersRoutes from './routes/employers.routes.js';
 import positionsRoutes from './routes/positions.routes.js';
+import chatsRoutes from './routes/chats.routes.js';
 
 // Load environment variables from a .env file
 dotenv.config();
@@ -69,6 +70,7 @@ app.use('/api/developers', developersRoutes);
 app.use('/api/skills', skillsRoutes);
 app.use('/api/employers', employersRoutes);
 app.use('/api/positions', positionsRoutes);
+app.use('/api/chats', chatsRoutes);
 
 // Configure the server to listen on the specified port
 server.listen(port, () => {
