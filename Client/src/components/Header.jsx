@@ -34,6 +34,12 @@ const Header = ({login,logOut})=> {
                             <button className='btn btn-dark'>Dashboard</button>
                         </Link>
                     }
+                    {
+                        login && 
+                        <Link to='/chats' style={{textDecoration: 'none', color: 'white'}}>
+                            <button className='btn btn-dark'>Chats</button>
+                        </Link>
+                    }
                     <button className='btn btn-dark'>Contact Us</button>
                 </div>
             </header>

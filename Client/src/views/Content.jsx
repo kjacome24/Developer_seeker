@@ -21,6 +21,7 @@ import Dashboard2 from './Dashboard2';
 import CompanyCard from '../components/CompanyCard';
 import ApiEmployers from './ApiEmployers';
 import Chat from './Chat';
+import ChatList from './ChatList';
 
 const Content = ({login, setLogin,logOut}) => {
     const [dataCountries, setDataCountries] = useState([]);
@@ -71,7 +72,8 @@ const Content = ({login, setLogin,logOut}) => {
                 <Route path='/skills'   element={<SkillList/>}  />
                 <Route path='/companies/:email' element={<CompanyCard dataApiEmployers={dataApiEmployers}/>} />
                 <Route path='*' element={<Navigate to='/aboutUs' />} />
-                <Route path='/chats' element={<Chat/>} />
+                <Route path='/chats' element={<ChatList dataApiEmployers={dataApiEmployers}  dataApiDevelopers={dataApiDevelopers}/>} />
+                <Route path='/chats/:chatId' element={<Chat/>} />
             </Routes>
         </main>
     );

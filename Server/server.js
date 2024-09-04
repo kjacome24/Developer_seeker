@@ -12,7 +12,9 @@ import developersRoutes from './routes/developers.routes.js';
 import skillsRoutes from './routes/skills.routes.js';
 import employersRoutes from './routes/employers.routes.js';
 import positionsRoutes from './routes/positions.routes.js';
-import chatsRoutes from './routes/chats.routes.js';
+import chatRoutes from './routes/chat.routes.js';
+import Message from './models/message.model.js'; // Import the Message model
+import Chat from './models/chat.model.js'; // Import the Chat model (if used)
 
 // Load environment variables from a .env file
 dotenv.config();
@@ -47,22 +49,36 @@ const io = new Server(server, {
 
 // Handle socket connections
 io.on('connection', (socket) => {
-    console.log('A user connected');
-    console.log(socket.id);
+    console.log(`User connected: ${socket.id}`);
 
-  // Se escucha el evento newMessage para recibir mensajes del cliente
-  // y se reenvían a todos los clientes conectados usando io.emit.
-    socket.on('message', (message) => {
-    console.log('Mensaje recibido:', message);
-    io.emit('message', message);
-});
-
-    socket.on('disconnect', () => {
-        console.log('A user disconnected');
+    socket.on('joinChat', ({ chatId }) => {
+        socket.join(chatId);
+        console.log(`User joined chat: ${chatId}`);
     });
 
-    
+    socket.on('sendMessage', async (data) => {
+        const { chatId, content, senderEmail } = data;
+
+        try {
+            const newMessage = await Message.create({
+                chat: chatId,
+                sender: senderEmail,
+                content,
+            });
+
+            await Chat.findByIdAndUpdate(chatId, { lastMessage: newMessage._id });
+
+            io.to(chatId).emit('receiveMessage', newMessage);
+        } catch (error) {
+            console.error('Error sending message:', error);
+        }
+    });
+
+    socket.on('disconnect', () => {
+        console.log(`User disconnected: ${socket.id}`);
+    });
 });
+
 
 
 // Define basic routes with use so we can further go to the routes.
@@ -70,7 +86,7 @@ app.use('/api/developers', developersRoutes);
 app.use('/api/skills', skillsRoutes);
 app.use('/api/employers', employersRoutes);
 app.use('/api/positions', positionsRoutes);
-app.use('/api/chats', chatsRoutes);
+app.use('/api/chats', chatRoutes);
 
 // Configure the server to listen on the specified port
 server.listen(port, () => {
