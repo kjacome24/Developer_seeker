@@ -53,16 +53,10 @@ Developer Seeker is a full-stack application built with the MERN stack (MongoDB,
 
 ### Backend (Server)
 
-1. In the `Server` directory, create a `.env` file based on the `.env.example`:
+1. Run the backend server:
 
     ```bash
-    cp .env.example .env
-    ```
-
-2. Run the backend server:
-
-    ```bash
-    npm start
+    npm run dev
     ```
 
 ### Frontend (Client)
@@ -75,7 +69,7 @@ Developer Seeker is a full-stack application built with the MERN stack (MongoDB,
 
 ## Usage
 
-Once both servers are running, navigate to `http://localhost:3000` to access the application.
+Once both servers are running, navigate to `http://localhost:5173` to access the application.
 
 ## Contributing
 
