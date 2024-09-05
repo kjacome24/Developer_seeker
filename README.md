@@ -1,6 +1,6 @@
 # Developer Seeker
 
-Developer Seeker is a full-stack application built with the MERN stack (MongoDB, Express, React, and Node.js). The application allows developers and employers to connect, post jobs, and collaborate through an integrated chat feature.
+Developer Seeker is a full-stack application built with the MERN stack (MongoDB, Express, React, and Node.js). The application allows developers and employers to connect, post jobs, and collaborate through an integrated chat feature that works with sockets.io.
 
 ## Features
 
