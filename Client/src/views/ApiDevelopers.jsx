@@ -6,10 +6,10 @@ import axios from "axios";
 const ApiDevelopers = ({setDataApiDevelopers,setLogin,login})=>{
     const navigate = useNavigate();
     useEffect(()=>{
-        if (login) {
+
             getData();
             console.log('ApiDevelopers was rendered');
-        }
+
     },[login]);
 
     const getData = ()=>{

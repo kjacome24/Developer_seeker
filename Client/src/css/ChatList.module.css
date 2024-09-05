@@ -1,3 +1,72 @@
 .chats{
     background-image: linear-gradient(to bottom, rgba(20, 20, 20, 0.9), rgba(50, 10, 50, 0.8));
 }
+
+.iconx{
+
+    width: 5rem;
+    height: 5rem;
+    background-color: white;
+    border-radius: 50%;
+    object-fit:contain;
+}
+
+.chatsCard{
+    margin-top: 1%;
+
+}
+
+.chatsCard a{
+    
+    padding: 1%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+}
+
+.chatsCard a:hover{
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.chatPic{
+    flex: 1;
+    display: flex;
+}
+
+.chatInfo{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+}
+
+.chatInfo h3{
+    flex: 1;
+    display: flex;
+    margin: 0 auto;
+    color: white;
+}
+
+.chatInfo h4{
+    flex: 1;
+    margin: 0 auto;
+    text-align: center;
+
+}
+
+.chatDate{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chatDate p{
+    margin: 0 auto;
+
+}

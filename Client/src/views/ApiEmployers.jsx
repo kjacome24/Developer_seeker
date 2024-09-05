@@ -6,10 +6,10 @@ const ApiEmployers = ({ setDataApiEmployers, setLogin, login }) => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        if (login) {
+
             getData();
             console.log('ApiEmployers was rendered');
-        }
+
     }, [login]);
 
     const getData = () => {

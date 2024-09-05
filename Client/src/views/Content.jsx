@@ -23,7 +23,7 @@ import ApiEmployers from './ApiEmployers';
 import Chat from './Chat';
 import ChatList from './ChatList';
 
-const Content = ({login, setLogin,logOut}) => {
+const Content = ({login, setLogin,logOut, chat}) => {
     const [dataCountries, setDataCountries] = useState([]);
     const [dataApiPositions, setDataApiPositions] = useState(
         {
@@ -62,7 +62,7 @@ const Content = ({login, setLogin,logOut}) => {
                 <Route path='/organizations' element={ <FormOrganizations dataCountries={dataCountries} setLogin={setLogin} />} />
                 <Route path='/dashboard' element={<Dashboard  setLogin={setLogin} dataApiPositions={dataApiPositions} dataApiDevelopers={dataApiDevelopers} dataCountries={dataCountries} login={login}/> } />
                 <Route path='/dashboard2/:email' element={<Dashboard2  setLogin={setLogin} dataApiPositions={dataApiPositions} dataApiDevelopers={dataApiDevelopers} dataCountries={dataCountries} login={login}/> } />
-                <Route path='/developers/:email' element={<ApiOneDeveloper setLogin={setLogin} dataCountries={dataCountries}/>} />
+                <Route path='/developers/:email' element={<ApiOneDeveloper setLogin={setLogin} dataCountries={dataCountries} chat={chat}/>} />
                 <Route path='/registrations_step2/:email' element={<RegistrationPickingLanguages logOut={logOut} setLogin={setLogin} dataApiSkills={dataApiSkills} setDataApiSkills={setDataApiSkills}/>} />
                 <Route path='/registrations_step3/:email' element={<RegistrationPickingFrameLib logOut={logOut} setLogin={setLogin} dataApiSkills={dataApiSkills} setDataApiSkills={setDataApiSkills}/>} />
                 <Route path='/registrations_step4/:email' element={<RegistrationFinal setDataApiDevelopers={setDataApiDevelopers}/>} />
@@ -70,10 +70,10 @@ const Content = ({login, setLogin,logOut}) => {
                 <Route path='/positions/:id' element={<Positions_card dataApiPositions={dataApiPositions} dataCountries={dataCountries} dataApiDevelopers={dataApiDevelopers}/>} />
                 <Route path='/skills/new' element={<SkillUpload setDataApiSkills={setDataApiSkills}/>} />
                 <Route path='/skills'   element={<SkillList/>}  />
-                <Route path='/companies/:email' element={<CompanyCard dataApiEmployers={dataApiEmployers}/>} />
+                <Route path='/companies/:email' element={<CompanyCard dataApiEmployers={dataApiEmployers} chat={chat}/>} />
                 <Route path='*' element={<Navigate to='/aboutUs' />} />
-                <Route path='/chats' element={<ChatList dataApiEmployers={dataApiEmployers}  dataApiDevelopers={dataApiDevelopers}/>} />
-                <Route path='/chats/:chatId' element={<Chat/>} />
+                <Route path='/chats' element={<ChatList dataApiEmployers={dataApiEmployers}  dataApiDevelopers={dataApiDevelopers} logOut={logOut}/>} />
+                <Route path='/chats/:chatId/:emailTo' element={<Chat  dataApiEmployers={dataApiEmployers}  dataApiDevelopers={dataApiDevelopers}/>} />
             </Routes>
         </main>
     );

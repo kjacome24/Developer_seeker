@@ -6,10 +6,10 @@ import axios from "axios";
 const ApiPositions = ({setDataApiPositions,setLogin,login })=>{
     const navigate = useNavigate();
     useEffect(()=>{
-        if (login) {
+
             getData();
             console.log('ApiPositions was rendered');
-        }
+
     },[login]);
 
     const getData = ()=>{

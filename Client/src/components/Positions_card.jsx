@@ -3,36 +3,35 @@ import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-const Positions_card = ({ dataApiPositions,dataCountries, dataApiDevelopers }) => {
+const Positions_card = ({ dataApiPositions, dataCountries, dataApiDevelopers }) => {
     const { id } = useParams();
-    const [position, setPosition] = useState({});
-    const [ developersWithMatch, setDevelopersWithMatch] = useState([...dataApiDevelopers.developersApiArray]);
+    const [position, setPosition] = useState(null);  // Start with null for proper conditional checks
+    const [developersWithMatch, setDevelopersWithMatch] = useState([]);
 
     useEffect(() => {
-        getPosition();
-        console.log('Positions_card was rendered');
-    }, []);
+        // Ensure the position is fetched and set properly
+        const foundPosition = dataApiPositions.positionsApiArray?.find((position) => position._id === id);
+        
+        if (foundPosition) {
+            setPosition(foundPosition);
+        } else {
+            console.error(`Position with ID ${id} not found`);
+        }
+    }, [id, dataApiPositions]);
 
     useEffect(() => {
-        if (position.languages && dataApiDevelopers.developersApiArray.length > 0) {
+        if (position && position.languages && dataApiDevelopers.developersApiArray.length > 0) {
             const matchedDevelopers = dataApiDevelopers.developersApiArray.map((developer) => {
                 return { ...developer, match: calculateMatch(developer) };
             });
             const sortedDevelopers = matchedDevelopers.sort((a, b) => b.match - a.match);
             setDevelopersWithMatch(sortedDevelopers);
         }
-        console.log('Developers with match was updated');
     }, [position, dataApiDevelopers]);
-
-    const getPosition = () => {
-        const foundPosition = dataApiPositions.positionsApiArray.find((position) => position._id === id);
-        console.log(foundPosition);
-        setPosition(foundPosition);
-    }
 
     const calculateMatch = (developer) => {
         let match = 0;
-        if (developer.languages) {
+        if (developer.languages && position?.languages) {
             const developerLanguages = developer.languages.map((lang) => lang.name);
             const positionLanguages = position.languages.map((lang) => lang.name);
             developerLanguages.forEach((lang) => {
@@ -41,13 +40,12 @@ const Positions_card = ({ dataApiPositions,dataCountries, dataApiDevelopers }) =
                 }
             });
         }
-        return Math.round((match / position.languages.length) * 100);
+        return position?.languages ? Math.round((match / position.languages.length) * 100) : 0;
     }
 
-
-
-
-
+    if (!position) {
+        return <p>Loading position details...</p>;  // Handle loading state
+    }
 
     return (
         <div className={`${styles.dashboard} card text-white`} style={{ width: "70rem" }}>
@@ -56,13 +54,12 @@ const Positions_card = ({ dataApiPositions,dataCountries, dataApiDevelopers }) =
                     <Link to={`/companies/${position.company?.email}`} style={{ color: "rgb(249, 157, 194)" }}>
                         {position.company?.orgName}
                     </Link>
-                    
-                    </h1>
+                </h1>
             </div>
             <div className={`${styles.cardBody} card-body text-white`}>
                 <div className={`${styles.cardBody1} card text-white`} style={{ backgroundColor: "transparent" }}>
                     <div className={`${styles.cardBody1b} card-body`}>
-                    <h4>Position Information:</h4>
+                        <h4>Position Information:</h4>
                         <p>
                             <strong style={{ color: "rgb(249, 157, 194)" }}>Position Name:</strong> {position.namePosition} <br />
                         </p>
@@ -74,7 +71,8 @@ const Positions_card = ({ dataApiPositions,dataCountries, dataApiDevelopers }) =
                             <br />
                             {position.languages?.map((lang, index) => (
                                 <img className={styles.icon} key={index} src={`data:image/jpeg;base64,${lang.image}`} 
-                                    alt={`${lang.name} Icon`} style={{width: "50px"}}/>))}
+                                    alt={`${lang.name} Icon`} style={{width: "50px"}}/>
+                            ))}
                         </p>
                         <p>
                             <strong style={{ color: "rgb(249, 157, 194)" }}>Posted on:</strong> {new Date(position.createdAt).toLocaleString()} <br />
@@ -82,9 +80,7 @@ const Positions_card = ({ dataApiPositions,dataCountries, dataApiDevelopers }) =
                         <p>
                             <strong style={{ color: "rgb(249, 157, 194)" }}>Updated on:</strong> {new Date(position.updatedAt).toLocaleString()} <br />
                         </p>
-
                     </div>
-
                 </div>
                 <div className={`${styles.cardBody2} card text-white`} style={{ backgroundColor: "transparent" }}>
                     <div className={`${styles.cardBody2a} card-header`}>
@@ -92,7 +88,7 @@ const Positions_card = ({ dataApiPositions,dataCountries, dataApiDevelopers }) =
                     </div>
                     <div className={`${styles.cardBody2b} card-body`}>
                         {developersWithMatch.map((developer, index) => (
-                                <div key={index} className={`${styles.cardDevs} card text-white bg-dark`} style={{border: "1px solid rgb(237, 208, 134)"}}>
+                            <div key={index} className={`${styles.cardDevs} card text-white bg-dark`} style={{border: "1px solid rgb(237, 208, 134)"}}>
                                 <div className={`${styles.cardHeader} card-header`}>
                                     <div className={styles.cardHeader1}>
                                         <h5 className="card-title">{developer.firstName} {developer.lastName}</h5>
@@ -102,7 +98,6 @@ const Positions_card = ({ dataApiPositions,dataCountries, dataApiDevelopers }) =
                                             <img key={index} src={country.flag} alt={country.name} style={{width: "2rem", border:"2px solid white"}}/>
                                         ))}
                                     </div>
-
                                 </div>
                                 <div className={`${styles.cardBody2} card-body`}>
                                     <div className={`${styles.progress} progress bg-dark`} role="progressbar" aria-label="Basic example" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
@@ -115,15 +110,12 @@ const Positions_card = ({ dataApiPositions,dataCountries, dataApiDevelopers }) =
                                     <Link to={`/developers/${developer.email}`} className="btn btn-dark" style={{border: "2px solid white"}}>View Profile</Link>
                                 </div>
                             </div>
-                            ))}
-
+                        ))}
                     </div>
                     <div className={`${styles.cardFooter} card-footer`}>
-                    
                         <Link to={"/skills/new"}>
                             <button className="btn btn-warning" style={{ border: "2px solid white" }}>Create a skill</button>
                         </Link>
-
                         <Link to={"/registrations_job"}>
                             <button className="btn btn-warning" style={{ border: "2px solid white" }}>Create a New Position</button>
                         </Link>
@@ -131,7 +123,6 @@ const Positions_card = ({ dataApiPositions,dataCountries, dataApiDevelopers }) =
                 </div>
             </div>
             <div className={`${styles.cardFootert} card-footer`}>
-        
                 <h4>Company Information:</h4>
                 <p>
                     <strong style={{ color: "rgb(249, 157, 194)" }}>Company Name:</strong> {position.company?.orgName} 
@@ -145,8 +136,9 @@ const Positions_card = ({ dataApiPositions,dataCountries, dataApiDevelopers }) =
             </div>
         </div>
     );
-}
+};
 
 export default Positions_card;
+
 
 

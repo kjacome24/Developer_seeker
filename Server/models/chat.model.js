@@ -5,6 +5,7 @@ const chatSchema = new mongoose.Schema({
         {
             type: String, // Store participant emails as strings
             required: true,
+            unique: true
         },
     ],
     lastMessage: {

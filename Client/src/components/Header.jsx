@@ -1,7 +1,7 @@
 import styles from '../css/Header.module.css'
 import { Routes, Route, Link, Navigate } from 'react-router-dom';
 
-const Header = ({login,logOut})=> {
+const Header = ({login,logOut,chat})=> {
     return (
         <div className={styles.header}>
             <header>
@@ -40,7 +40,7 @@ const Header = ({login,logOut})=> {
                             <button className='btn btn-dark'>Chats</button>
                         </Link>
                     }
-                    <button className='btn btn-dark'>Contact Us</button>
+                    <button className='btn btn-dark' onClick={()=>chat("contacto@codingdojo.la")}>Contact Us</button>
                 </div>
             </header>
 

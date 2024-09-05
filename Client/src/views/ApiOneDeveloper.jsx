@@ -4,7 +4,7 @@ import {useNavigate} from "react-router-dom";
 import axios from 'axios';
 import styles from '../css/ApiOneDeveloper.module.css';
 
-const ApiOneDeveloper = ({setLogin,dataCountries}) => {
+const ApiOneDeveloper = ({setLogin,dataCountries,chat}) => {
     const navigate = useNavigate();
     const {email} = useParams();
 
@@ -51,6 +51,7 @@ const ApiOneDeveloper = ({setLogin,dataCountries}) => {
         <div className={`${styles.developerCard} card text-white`} style={{ width: "70rem" }}>
                 <div className={`${styles.cardHeader} card-header`}>
                     <h1>Welcome to {dataApiDeveloper.dataApiOne.firstName}'s card:</h1>
+                    <button className={`${styles.chatButton} btn bg-success text-white`} onClick={()=>chat(email)}>Connect with {dataApiDeveloper.dataApiOne.firstName}</button>
                 </div>
                 <div className={`${styles.cardBody} card-body`}>
                     <div className={styles.cardBodyA}>

@@ -55,6 +55,11 @@ io.on('connection', (socket) => {
         socket.join(chatId);
         console.log(`User joined chat: ${chatId}`);
     });
+    
+    socket.on('leaveChat', ({ chatId }) => {
+        socket.leave(chatId);
+        console.log(`User left chat: ${chatId}`);
+    });
 
     socket.on('sendMessage', async (data) => {
         const { chatId, content, senderEmail } = data;

@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import styles from '../css/CompanyCard.module.css';
 
-const CompanyCard = ({ dataApiEmployers }) => {
+const CompanyCard = ({ dataApiEmployers,chat }) => {
     const { email } = useParams();
     const company = dataApiEmployers.employersApiArray.find(org => org.email === email);
 
@@ -10,10 +10,13 @@ const CompanyCard = ({ dataApiEmployers }) => {
         return <div className={styles.notFound}>Company not found</div>;
     }
 
+
+
     return (
         <div className={`${styles.companyCard} card text-white`} style={{ width: "70rem" }}>
             <div className={`${styles.cardHeader} card-header`}>
                 <h2>{company.orgName}</h2>
+                <button className={`${styles.chatButton} btn bg-success text-white`} onClick={()=>chat(email)}>Connect with {company.orgName}</button>
             </div>
             <div className={`${styles.cardBody} card-body`}>
                 <div className={`${styles.imageContainer}`}>

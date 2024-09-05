@@ -7,3 +7,8 @@
     height: 15rem;
 
 }
+
+.cardHeader{
+    display: flex;
+    justify-content: space-between;
+}
